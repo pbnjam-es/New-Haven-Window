@@ -1,0 +1,254 @@
+body {
+    overflow-x: hidden;
+}
+
+#title-video {
+    /* width: 100%; */
+    /* height: 100%;  */
+    position: absolute;
+    right: -15%;
+    bottom: 0;
+    min-width: 130%;
+    min-height: 130%;
+    filter: brightness(0.6);
+}
+
+#title {
+    font-family: 'Playfair Display', serif;
+    /* font-family: "Patrick Hand", cursive; */
+    font-size: 50px;
+    position: relative;
+    text-align: center;
+    margin-top: 200px;
+    color: white;
+}
+
+#subtitle {
+    /* font-family:'Courier New', Courier, monospace; */
+    font-family: "Patrick Hand", cursive;
+
+    color: white;
+    font-size: 28px;
+    position: relative;
+    text-align: center;
+    top: 16px;
+}
+  
+#author-tag {
+    /* font-family:'Courier New', Courier, monospace; */
+    font-family: "Patrick Hand", cursive;
+
+    color: white;
+    font-size: 19px;
+    position: relative;
+    text-align: center;
+    top: 27px;
+}
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+    /* color: #fff; */
+    display: block;
+    font-family: "Patrick Hand", cursive;
+    color: black;
+    /* font-family: monospace; */
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; Adjust as needed */
+    animation: 
+    typing calc(1s) steps(30, end),
+    blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+  
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+}
+
+#map-shadow {
+    position: absolute;
+    margin-top: 133px;
+    left: -15px;
+    content: "";
+    display: block;
+    width: 105%;
+    height: 40%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, rgba(255, 255, 255, 0.852) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+#intro-section {
+    position: relative;
+    display: block;
+    margin-top: 260px;
+    margin-bottom: 150px;
+}
+
+#dotted-line {
+    width: 100%;
+    height: 300%;
+    /* left: 40vw; */
+    position: relative;
+    transform: scaleX(-1);
+}
+
+.intro-text {
+    font-family: "Patrick Hand", cursive;
+    color: black;
+    font-size: 24px;
+    width: 25vw;
+    left: 18vw;
+}
+
+#search-new-haven {
+    top: 110px;
+    position: absolute;
+}
+
+#search-text {
+    width: 135px;
+    font-size: 35px;
+    font-family: "Patrick Hand", cursive;
+    color: black;
+}
+
+#step-one {
+    /* width: 30vw; */
+    top: 290px;
+    /* left: 18vw; */
+    height: 100px;
+    position: absolute;
+}
+
+#map-zoom-in {
+    position: absolute;
+    left: 23vw;
+    top: -90px;
+}
+
+#step-two {
+    /* width: 30vw; */
+    top: 420px;
+    /* left: 18vw; */
+    height: 100px;
+    position: absolute;
+}
+
+#step-three {
+    /* width: 30vw; */
+    top: 500px;
+    left: 13vw;
+    height: 200px;
+    position: absolute;
+}
+
+#green-overlay {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 10vh;
+    text-align: center;
+    left: 18vw;
+    z-index: 1;
+    width: 40vw;
+    top: 240px;
+}
+
+#green-flavor {
+    font-family: "Patrick Hand", cursive;
+    color: white;
+    font-size: 27px;
+    height: 50px;
+    position: absolute;
+    top: 1000px;
+    left: 20vw;
+    z-index: 2;
+}
+
+#step-four {
+    width: 30vw;
+    top: 1200px;
+    left: 50vw;
+    height: 200px;
+    position: absolute;
+    text-align: right;
+}
+
+#step-five {
+    width: 30vw;
+    top: 1400px;
+    left: 50vw;
+    height: 200px;
+    position: absolute;
+    text-align: right;
+}
+
+#step-six {
+    width: 30vw;
+    top: 1720px;
+    left: 33vw;
+    height: 200px;
+    position: absolute;
+    text-align: center;
+}
+
+
+#new-haven-green {
+    position: absolute;
+    align-self: center;
+}
+
+#choice {
+    /* font-family: 'Playfair Display', serif; */
+    font-family: "Patrick Hand", cursive;
+    color: black;
+    font-size: 6vh;
+    text-align: center;
+    top: 2440px;
+    left: 13vw;
+    position: absolute;
+}
+
+#g-Final-Project-Map-box {
+    width: 60%;
+    height: 60%;
+    margin-left: 40vw;
+}
+.animate-246a {
+    animation: myMove-246a 2s forwards; /* Define the animation */
+}
+@keyframes myMove-246a {
+    from {width: 60%; margin-left: 40vw;}
+    to {width: 100%; margin-left: 35vw; margin-top: -30px;}
+}
+
+#Transit_Lines {
+    z-index: 4;
+}
+
+#line_246a:hover, #line_206:hover {
+    stroke-width: 20;
+}
+
+.g-pstyle1:hover, .g-pstyle2:hover {
+    font-size: 40;
+    font-weight: 700;
+}
+
+#footer {
+    height: 200px;
+    font-family: "Patrick Hand", cursive;
+    position: relative;
+    font-size: 20px;
+    margin-top: 400px;
+    text-align: center;
+}
