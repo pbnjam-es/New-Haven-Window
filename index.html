@@ -110,7 +110,7 @@
                 position: absolute;
                 box-sizing: border-box;
             }
-            #g-Final-Project-Map-box .g-aiPointText p { white-space: nowrap; }
+            #g-Final-Project-Map-box .g-aiPointText p { white-space: nowrap; pointer-events: none;}
             #g-Final-Project-Map-Artboard_1 {
                 position:relative;
                 overflow:hidden;
@@ -133,6 +133,7 @@
             }
             #g-Final-Project-Map-Artboard_1 .g-pstyle0 {
                 height:30px;
+                pointer-events: none;
                 /* line-height:10%; */
             }
             #g-Final-Project-Map-Artboard_1 .g-pstyle1 {
@@ -239,7 +240,7 @@
                 <div id="g-ai0-14" class="g-interactions g-aiAbs g-aiPointText" style="top:38.2555%;margin-top:-16.1px;left:63.305%;width:131px;">
                     <p class="g-pstyle0">Fair Haven</p>
                 </div>
-                <div id="g-ai0-15" class="g-interactions g-aiAbs g-aiPointText" style="top:40.318%;margin-top:-31.1px;left:56.0334%;width:108px;">
+                <div id="g-ai0-15" class="g-interactions g-aiAbs g-aiPointText" style="top:40.318%;margin-top:-24.1px;left:57.0334%;width:108px;">
                     <p class="g-pstyle0">Wooster <br> Square</p>
                 </div>
                 <div id="g-ai0-16" class="g-interactions g-aiAbs g-aiPointText" style="top:39.568%;margin-top:-16.1px;left:36.4098%;width:130px;">
@@ -499,49 +500,7 @@ window.addEventListener('DOMContentLoaded', () => {
         reset_scrolling();
         d3.select("#return-button").attr("hidden", null)
 
-        window.scrollTo(0, 7845);
-
-        // const myDiv = document.getElementById("g-Final-Project-Map-box");
-        // myDiv.insertAdjacentHTML("afterend", '        </div> \
-        // <div class="beat beat-206" id="step-206-seven"> \
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-eight">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-nine">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-ten">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-eleven">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-twelve">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-thirteen">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-fourteen">\
-        //     \
-        // </div> \
-        // <div class="beat beat-206" id="step-206-fifteen">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-sixteen">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-seventeen">\
-        //     \
-        // </div>\
-        // <div class="beat beat-206" id="step-206-eighteen">');
-        // Remove the class after the animation completes to allow retriggering
-        // d3.select("#g-Final-Project-Map-box").node().addEventListener('animationend', () => {
-            // d3.select("#g-Final-Project-Map-box").classList.remove('animate-246a');
-            // d3.select("#g-Final-Project-Map-box").classed("animate-246a", false);
-        // }, { once: true }); // Ensures the listener is only triggered once
+        window.scrollTo(0, 7700);
     })
     d3.select("#return-button").on('click', function(event) {
         selected = "none";
@@ -550,6 +509,10 @@ window.addEventListener('DOMContentLoaded', () => {
         d3.select("#g-Final-Project-Map-box").classed("animate-206", false);
         d3.select("#g-Final-Project-Map-Artboard_1-img").classed("animate-back-img", false);
         d3.select("#map-shadow").classed("animate-back-img", false);
+        d3.selectAll("#Circle-246a").style("transform", 
+        "")
+        d3.selectAll("#Circle-206").style("transform", 
+        "")
 
         // var paras = document.getElementsByClassName('beat-246a');
         // while(paras[0]) {
@@ -595,8 +558,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 window.pageYOffset ||
                 document.documentElement.scrollTop;
                 console.log(scrollTop)
-                if (scrollTop < 7845) {
-                    window.scrollTo(0, 7845);
+                if (scrollTop < 7600) {
+                    window.scrollTo(0, 7600);
                 } 
             }
         }
@@ -659,6 +622,10 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
 
             d3.select("#new-haven-green-video-246a").style("opacity", 5*event.detail.progress)
+            // d3.select("Circle-246a").attr("cx", (1027 * (1-event.detail.progress) + 800*event.detail.progress))
+            // d3.select("Circle-246a").attr("cy", (645 * (1-event.detail.progress) + 700*event.detail.progress))
+            d3.selectAll("#Circle-246a").style("transform", 
+            "translate(" + (0 * (1-event.detail.progress) + -8.6*event.detail.progress) + "vw, " + (0 * (1-event.detail.progress) + -6.8*event.detail.progress) + "vh)")
         }
 
     });
@@ -685,6 +652,19 @@ window.addEventListener('DOMContentLoaded', () => {
             typeWriter(el, message, 25);
             // d3.select("#new-haven-green-video-246a").style("opacity", 1)
             // d3.select("#step-246a-seven").style("position", "fixed");
+        }
+
+    });
+    d3.select("#step-246a-eight").on('progress', function(event) {
+        if (selected == "246a") {
+            if (event.detail.progress < 0.2) {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-8.6 * (1-5*event.detail.progress) + -7.1*5*event.detail.progress) + "vw, " + (-6.8 * (1-5*event.detail.progress) + -9.8*5*event.detail.progress) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-7 * (1-event.detail.progress)/0.8 + -22*(event.detail.progress-0.2))/0.8 + "vw, " + (-9.8 * (1-event.detail.progress)/0.8 + -22.8*(event.detail.progress-0.2))/0.8 + "vh)")
+            }
         }
 
     });
@@ -720,6 +700,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
 
             d3.select("#forest-246a").style("opacity", 5*event.detail.progress)
+            d3.selectAll("#Circle-246a").style("transform", 
+            "translate(" + (-22 * (1-event.detail.progress) + -30*event.detail.progress) + "vw, " + (-22.8 * (1-event.detail.progress) + -30*event.detail.progress) + "vh)")
         }
 
     });
@@ -751,6 +733,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+    d3.select("#step-246a-ten").on('progress', function(event) {
+        if (selected == "246a") {
+
+            d3.select("#forest-246a").style("opacity", 5*event.detail.progress)
+            d3.selectAll("#Circle-246a").style("transform", 
+            "translate(" + (-30 * (1-event.detail.progress) + -28.5*event.detail.progress) + "vw, " + (-30 * (1-event.detail.progress) + -45*event.detail.progress) + "vh)")
+        }
+
+    });
     d3.select("#step-246a-ten").on('stepout', function(event) {
         if (selected == "246a") {
 
@@ -775,6 +766,15 @@ window.addEventListener('DOMContentLoaded', () => {
             typeWriter(el, message, 25);
             // d3.select("#new-haven-green-video-246a").style("opacity", 1)
             // d3.select("#step-246a-seven").style("position", "fixed");
+        }
+
+    });
+    d3.select("#step-246a-eleven").on('progress', function(event) {
+        if (selected == "246a") {
+
+            d3.select("#forest-246a").style("opacity", 5*event.detail.progress)
+            d3.selectAll("#Circle-246a").style("transform", 
+            "translate(" + (-28.5 * (1-event.detail.progress) + -28*event.detail.progress) + "vw, " + (-45 * (1-event.detail.progress) + -48.5*event.detail.progress) + "vh)")
         }
 
     });
@@ -809,6 +809,15 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
 
             d3.select("#cat-cafe-246a").style("opacity", 5*event.detail.progress)
+            if (event.detail.progress < 0.6) {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-28 * (0.6-event.detail.progress)/0.6 + -38*(event.detail.progress)/0.6) + "vw, " + (-48.5 * (0.6-event.detail.progress)/0.6 + -50*(event.detail.progress)/0.6) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-38 * (1-event.detail.progress)/0.4 + -44*(event.detail.progress-0.6)/0.4) + "vw, " + (-50 * (1-event.detail.progress)/0.4 + -54*(event.detail.progress-0.6)/0.4) + "vh)")
+            }
+
         }
         
     });
@@ -843,6 +852,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
 
             d3.select("#anti-discrimination-246a").style("opacity", 5*event.detail.progress)
+            if (event.detail.progress < 0.6) {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-44 * (0.6-event.detail.progress)/0.6 + -41*(event.detail.progress)/0.6) + "vw, " + (-54 * (0.6-event.detail.progress)/0.6 + -64*(event.detail.progress)/0.6) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-41 * (1-event.detail.progress)/0.4 + -45*(event.detail.progress-0.6)/0.4) + "vw, " + (-64 * (1-event.detail.progress)/0.4 + -77*(event.detail.progress-0.6)/0.4) + "vh)")
+            }
         }
 
     });
@@ -877,6 +894,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
 
             d3.select("#amity-246a").style("opacity", 5*event.detail.progress)
+            d3.selectAll("#Circle-246a").style("transform", 
+            "translate(" + (-45 * (1-event.detail.progress) + -47*event.detail.progress) + "vw, " + (-77 * (1-event.detail.progress) + -74*event.detail.progress) + "vh)")
         }
 
     });
@@ -972,6 +991,20 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+    d3.select("#step-206-seven").on('progress', function(event) {
+        if (selected == "206") {
+
+            if (event.detail.progress < 0.6) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (0 * (0.6-event.detail.progress)/0.6 + 2*(event.detail.progress)/0.6) + "vw, " + (0 * (0.6-event.detail.progress)/0.6 + 2*(event.detail.progress)/0.6) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (2 * (1-event.detail.progress)/0.4 + 1*(event.detail.progress-0.6)/0.4) + "vw, " + (2 * (1-event.detail.progress)/0.4 + 7*(event.detail.progress-0.6)/0.4) + "vh)")
+            }
+        }
+
+    });
     d3.select("#step-206-seven").on('stepout', function(event) {
         if (selected == "206") {
 
@@ -1003,6 +1036,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
 
             d3.select("#wooster-206").style("opacity", 5*event.detail.progress)
+            d3.selectAll("#Circle-206").style("transform", 
+            "translate(" + (1 * (1-event.detail.progress) + 10*event.detail.progress) + "vw, " + (7 * (1-event.detail.progress) + 12*event.detail.progress) + "vh)")
         }
 
     });
@@ -1066,6 +1101,9 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
     
             d3.select("#industrial-decay-206").style("opacity", 5*event.detail.progress)
+        
+            d3.selectAll("#Circle-206").style("transform", 
+            "translate(" + (10 * (1-event.detail.progress) + 16*event.detail.progress) + "vw, " + (12 * (1-event.detail.progress) + 12*event.detail.progress) + "vh)")
         }
     
     });
@@ -1139,6 +1177,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
     
             d3.select("#fair-haven-206").style("opacity", 5*event.detail.progress)
+            d3.selectAll("#Circle-206").style("transform", 
+            "translate(" + (16 * (1-event.detail.progress) + 20*event.detail.progress) + "vw, " + (12 * (1-event.detail.progress) + 11*event.detail.progress) + "vh)")
         }
     
     });
@@ -1175,6 +1215,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
     
             d3.select("#cash-four-206").style("opacity", 5*event.detail.progress)
+            
         }
     
     });
@@ -1211,6 +1252,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
     
             d3.select("#ebt-206").style("opacity", 5*event.detail.progress)
+            if (event.detail.progress < 0.6) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (20 * (0.6-event.detail.progress)/0.6 + 26*(event.detail.progress)/0.6) + "vw, " + (11 * (0.6-event.detail.progress)/0.6 + 10*(event.detail.progress)/0.6) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (26 * (1-event.detail.progress)/0.4 + 27.5*(event.detail.progress-0.6)/0.4) + "vw, " + (10 * (1-event.detail.progress)/0.4 + 18*(event.detail.progress-0.6)/0.4) + "vh)")
+            }
         }
     
     });
@@ -1232,7 +1281,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
-            const message = "Passing by Fort Wooster park, I could just barely make out a memorial which, as I later found out, was dedicated to the Quinnipiac Tribe.  Only 0.3% of New Haven’s population is Native American. ";
+            const message = "Passing by Fort Wooster park, I could just barely make out a memorial which, as I later found out, was dedicated to the Quinnipiac Tribe.  \
+            Only 0.3% of New Haven’s population is Native American. ";
             
             clearInterval(typewriterInterval); // Reset in case user scrolled in too quickly
             typeWriter(el, message, 25);
@@ -1247,6 +1297,19 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
     
             d3.select("#native-american-206").style("opacity", 5*event.detail.progress)
+            
+            if (event.detail.progress < 0.4) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (27.5 * (0.4-event.detail.progress)/0.4 + 27*(event.detail.progress)/0.4) + "vw, " + (18 * (0.4-event.detail.progress)/0.4 + 36*(event.detail.progress)/0.4) + "vh)")
+            }
+            else if (event.detail.progress < 0.6) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (27 * (0.6-event.detail.progress)/0.2 + 27.5*(event.detail.progress-0.4)/0.2) + "vw, " + (36 * (0.6-event.detail.progress)/0.2 + 41*(event.detail.progress-0.4)/0.2) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (27.5 * (1-event.detail.progress)/0.4 + 27*(event.detail.progress-0.6)/0.4) + "vw, " + (41 * (1-event.detail.progress)/0.4 + 53*(event.detail.progress-0.6)/0.4) + "vh)")
+            }
         }
     
     });
@@ -1278,6 +1341,21 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+    d3.select("#step-206-sixteen").on('progress', function(event) {
+        if (event.detail.progress < 0.7) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (27 * (0.7-event.detail.progress)/0.7 + 23.5*(event.detail.progress)/0.7) + "vw, " + (53 * (0.7-event.detail.progress)/0.7 + 87*(event.detail.progress)/0.7) + "vh)")
+            }
+            else if (event.detail.progress < 0.85) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (23.5 * (0.85-event.detail.progress)/0.15 + 23.5*(event.detail.progress-0.7)/0.15) + "vw, " + (87 * (0.85-event.detail.progress)/0.15 + 100*(event.detail.progress-0.7)/0.15) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (23.5 * (1-event.detail.progress)/0.15 + 27.7*(event.detail.progress-0.85)/0.15) + "vw, " + (100 * (1-event.detail.progress)/0.15 + 98*(event.detail.progress-0.85)/0.15) + "vh)")
+            }
+    });
+
 
     d3.select("#step-206-sixteen").on('stepout', function(event) {
         if (selected == "206") {
@@ -1313,6 +1391,18 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "206") {
     
             d3.select("#lighthouse-point-206").style("opacity", 5*event.detail.progress)
+            if (event.detail.progress < 0.4) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (27.7 * (0.4-event.detail.progress)/0.4 + 30*(event.detail.progress)/0.4) + "vw, " + (100 * (0.4-event.detail.progress)/0.4 + 121*(event.detail.progress)/0.4) + "vh)")
+            }
+            else if (event.detail.progress < 0.6) {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (30 * (0.6-event.detail.progress)/0.2 + 27.5*(event.detail.progress-0.4)/0.2) + "vw, " + (121 * (0.6-event.detail.progress)/0.2 + 131*(event.detail.progress-0.4)/0.2) + "vh)")
+            }
+            else {
+                d3.selectAll("#Circle-206").style("transform", 
+                "translate(" + (27.5 * (1-event.detail.progress)/0.4 + 23*(event.detail.progress-0.6)/0.4) + "vw, " + (131 * (1-event.detail.progress)/0.4 + 135*(event.detail.progress-0.6)/0.4) + "vh)")
+            }
         }
     
     });

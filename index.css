@@ -194,7 +194,7 @@ body {
 
 #step-six {
     width: 30vw;
-    top: 1670px;
+    top: 1710px;
     left: 33vw;
     height: 200px;
     position: absolute;
@@ -289,7 +289,7 @@ body {
 }
 
 .g-pstyle1:hover, .g-pstyle2:hover {
-    font-size: 40;
+    font-size: 60;
     font-weight: 700;
 }
 
@@ -318,7 +318,7 @@ body {
     color: black;
     margin-left: 10vw;
     height: 100px;
-    width: 35vw;
+    width: 40vw;
     z-index: 10;
     /* margin-bottom: 500px; */
 }
