@@ -1,5 +1,5 @@
 body {
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 #title-video {
@@ -194,7 +194,7 @@ body {
 
 #step-six {
     width: 30vw;
-    top: 1720px;
+    top: 1670px;
     left: 33vw;
     height: 200px;
     position: absolute;
@@ -223,16 +223,17 @@ body {
     top: 40px;
     /* left: 10vw; */
     position: sticky;
+    z-index: 1;
 }
 
 #return-button {
-    position: fixed;
+    position: fixed !important; 
     font-family: "Patrick Hand", cursive;
     color: rgb(40, 40, 40, 0.7);
     font-weight: 300;
     font-size: 4vh;
     top: 40px;
-    left: 85vw;
+    left: 90vw;
     border-radius: 1px;
     border-style: solid;
     padding: 5px;
@@ -256,7 +257,15 @@ body {
 }
 @keyframes myMove-246a {
     from {width: 60%; margin-left: 40vw;}
-    to {width: 110%; margin-left: 35vw; margin-top: -50px;}
+    to {width: 110%; margin-left: 37vw; top: 0px;}
+}
+
+.animate-206 {
+    animation: myMove-206 2s forwards; /* Define the animation */
+}
+@keyframes myMove-206 {
+    from {width: 60%; margin-left: 40vw;}
+    to {width: 80%; margin-left: 35vw; top: -220px;}
 }
 
 .animate-back-img {
@@ -266,6 +275,10 @@ body {
     from {opacity: 0}
     to {opacity: 1;}
 }
+
+/* .animate-map-shadow {
+    animation: map-shadow 2s forwards;
+} */
 
 #Transit_Lines, #line_246a, #line_206 {
     z-index: 4;
@@ -282,15 +295,18 @@ body {
 
 
 #map-shadow {
-    position: absolute;
-    top: -135px; 
-    left: 20vw;
-    content: "";
-    display: block;
+    position: fixed !important;
+    pointer-events: none;
+    top: -235px; 
+    left: 35vw;
+    /* content: ""; */
+    /* display: block; */
     width: 100%;
-    height: 800px;
-    z-index: -2;
-    background-image: radial-gradient(circle at 65% 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
+    height: 1000px;
+    opacity: 0;
+    /* height: auto; */
+    /* z-index: 2; */
+    background-image: radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0) 53%, rgba(255, 255, 255, 1) 70%);
 }
 
 #annotation {
@@ -303,7 +319,7 @@ body {
     margin-left: 10vw;
     height: 100px;
     width: 35vw;
-    z-index: 7;
+    z-index: 10;
     /* margin-bottom: 500px; */
 }
 
@@ -365,11 +381,91 @@ body {
     z-index: 5;
     width: 20%;
     margin-left: 7vw;
+    top: 210px;
+}
+
+#wooster-206 {
+    transform: rotate(0deg);
+    transform-origin: center center;
+    z-index: 0;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+
+#industrial-decay-206 {
+    transform: rotate(5deg);
+    transform-origin: center center;
+    z-index: 1;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#health-206 {
+    transform: rotate(-5deg);
+    transform-origin: center center;
+    z-index: 2;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#fair-haven-206 {
+    transform: rotate(0deg);
+    transform-origin: center center;
+    z-index: 3;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#cash-four-206 {
+    transform: rotate(0deg);
+    transform-origin: center center;
+    z-index: 4;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#ebt-206 {
+    transform: rotate(-5deg);
+    transform-origin: center center;
+    z-index: 5;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#native-american-206 {
+    transform: rotate(4deg);
+    transform-origin: center center;
+    z-index: 6;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#lighthouse-point-206 {
+    transform: rotate(-3deg);
+    transform-origin: center center;
+    z-index: 7;
+    /* width: 20%; */
+    margin-left: 7vw;
+}
+#lighthouse-206 {
+    transform: rotate(-7deg);
+    transform-origin: center center;
+    z-index: 8;
+    width: 15%;
+    top: 200px;
+    margin-left: 6vw;
+}
+#bird-206 {
+    transform: rotate(4deg);
+    transform-origin: center center;
+    z-index: 8;
+    width: 15%;
+    top: 200px;
+    margin-left: 30vw;
 }
 
 
 
+
 .beat-246a {
+    height: 500px;
+}
+
+.beat-206 {
     height: 500px;
 }
 
