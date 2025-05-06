@@ -1,5 +1,5 @@
 body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 #title-video {
@@ -74,7 +74,7 @@ body {
     50% { border-color: orange }
 }
 
-#map-shadow {
+#title-shadow {
     position: absolute;
     margin-top: 133px;
     left: -15px;
@@ -207,31 +207,67 @@ body {
     align-self: center;
 }
 
+#sticky-container {
+    position: relative;
+    /* height: 1800px; */
+}
+
 #choice {
     /* font-family: 'Playfair Display', serif; */
     font-family: "Patrick Hand", cursive;
     color: black;
     font-size: 6vh;
-    text-align: center;
-    top: 2440px;
-    left: 13vw;
-    position: absolute;
+    /* text-align: center; */
+    /* top: 2440px; */
+    margin-left: 10vw;
+    top: 40px;
+    /* left: 10vw; */
+    position: sticky;
+}
+
+#return-button {
+    position: fixed;
+    font-family: "Patrick Hand", cursive;
+    color: rgb(40, 40, 40, 0.7);
+    font-weight: 300;
+    font-size: 4vh;
+    top: 40px;
+    left: 85vw;
+    border-radius: 1px;
+    border-style: solid;
+    padding: 5px;
+    z-index: 10;
+}
+
+#return-button:hover {
+    font-weight: 900;
+    color: black;
 }
 
 #g-Final-Project-Map-box {
     width: 60%;
     height: 60%;
     margin-left: 40vw;
+    top: 0px;
+    position: sticky;
 }
 .animate-246a {
     animation: myMove-246a 2s forwards; /* Define the animation */
 }
 @keyframes myMove-246a {
     from {width: 60%; margin-left: 40vw;}
-    to {width: 100%; margin-left: 35vw; margin-top: -30px;}
+    to {width: 110%; margin-left: 35vw; margin-top: -50px;}
 }
 
-#Transit_Lines {
+.animate-back-img {
+    animation: back-img 2s forwards;
+}
+@keyframes back-img {
+    from {opacity: 0}
+    to {opacity: 1;}
+}
+
+#Transit_Lines, #line_246a, #line_206 {
     z-index: 4;
 }
 
@@ -242,6 +278,106 @@ body {
 .g-pstyle1:hover, .g-pstyle2:hover {
     font-size: 40;
     font-weight: 700;
+}
+
+
+#map-shadow {
+    position: absolute;
+    top: -135px; 
+    left: 20vw;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 800px;
+    z-index: -2;
+    background-image: radial-gradient(circle at 65% 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
+}
+
+#annotation {
+    /* top: 0px; */
+    top: 110px;
+    position: sticky;
+    font-family: "Patrick Hand", cursive;
+    font-size: 21px;
+    color: black;
+    margin-left: 10vw;
+    height: 100px;
+    width: 35vw;
+    z-index: 7;
+    /* margin-bottom: 500px; */
+}
+
+/* #images-sticky-container {
+    position: sticky;
+    top: 230px;
+    margin-left: 10vw;
+    width: 40vw;
+    /* height: 2000px; */
+/* } */
+
+.stack {
+    position: fixed !important;
+    top: 250px;
+    left: 10vw;
+    border:rgba(0, 0, 0, 1);
+    border-radius: 1px;
+    border-style: solid;
+    width: 40%; 
+    /* height: 40%; */
+    /* height: 100vh; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
+
+#new-haven-green-video-246a {
+    transform: rotate(0deg);
+    transform-origin: center center;
+}
+
+#forest-246a {
+    transform: rotate(5deg);
+    transform-origin: center center;
+    z-index: 1;
+}
+
+#cat-cafe-246a {
+    transform: rotate(-5deg);
+    transform-origin: center center;
+    z-index: 2;
+}
+
+#anti-discrimination-246a {
+    transform: rotate(0deg);
+    transform-origin: center center;
+    z-index: 3;
+}
+
+#amity-246a {
+    transform: rotate(-5deg);
+    transform-origin: center center;
+    z-index: 4;
+}
+
+#store-246a {
+    transform: rotate(5deg);
+    transform-origin: center center;
+    z-index: 5;
+    width: 20%;
+    margin-left: 7vw;
+}
+
+
+
+.beat-246a {
+    height: 500px;
+}
+
+#step-246a-seven {
+    margin-top: 200px;
+    z-index: 6;
+    position: relative;
+    /* margin-bottom: 400px; */
 }
 
 #footer {
