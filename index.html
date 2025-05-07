@@ -341,6 +341,14 @@
     <div id="return-button">
         Return
     </div>
+    <div id="household-income">
+        Household Income:
+        <!-- <div id="counter"> -->
+        <!-- </div> -->
+        <!-- <div class="counter" style="--from:48; --to:22; --time:1s;"></div> -->
+        <div id="counter" class="counter"></div>
+        &nbsp; &nbsp; k
+    </div>
     <video class="stack" autoplay muted loop id="new-haven-green-video-246a">
         <source src="./media/246a-new-haven-green.mp4" type="video/mp4">
     </video>
@@ -442,6 +450,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // const return_button = document.getElementById("return-button")
     d3.select("#return-button").attr("hidden", "")
     reset_scrolling();
+    d3.select("#household-income").style("opacity", 0);
+    // d3.select(".counter").style("opacity", 0);
     // const box = d3.select("#g-Final-Project-Map-box")
     
     // line_246a.addEventListener("onmouseover", function() {
@@ -482,13 +492,16 @@ window.addEventListener('DOMContentLoaded', () => {
         d3.select("#choice").text("Choose a bus line: 246a")
         reset_scrolling();
         d3.select("#return-button").attr("hidden", null)
+        // d3.select("#household-income").classed("household-opacity", true);
+        // d3.select("#counter").classed("counter", true);
+        d3.select("#household-income").style("opacity", 1);
+        animateCounter(0, 48, 1000); // from 0 to 48 in 1000ms
+        // d3.select(".counter").style("opacity", 1);
+        // d3.select("#counter").style("--from", 0);
+        // d3.select("#counter").style("--to", 48);
+        // d3.select("#counter").style("--time", "1s");
 
         window.scrollTo(0, 2700);
-        // Remove the class after the animation completes to allow retriggering
-        // d3.select("#g-Final-Project-Map-box").node().addEventListener('animationend', () => {
-            // d3.select("#g-Final-Project-Map-box").classList.remove('animate-246a');
-            // d3.select("#g-Final-Project-Map-box").classed("animate-246a", false);
-        // }, { once: true }); // Ensures the listener is only triggered once
     })
     d3.select("#g-Final-Project-Map-box").on('206', function(event) {
         d3.select("#g-Final-Project-Map-box").classed("animate-206", true);
@@ -499,6 +512,11 @@ window.addEventListener('DOMContentLoaded', () => {
         d3.select("#choice").text("Choose a bus line: 206")
         reset_scrolling();
         d3.select("#return-button").attr("hidden", null)
+        // d3.select("#household-income").classed("household-opacity", true);
+        // d3.select("#counter").classed("counter", true);
+        d3.select("#household-income").style("opacity", 1);
+        animateCounter(0, 48, 1000); // from 0 to 48 in 1000ms
+        // d3.select(".counter").style("opacity", 1);
 
         window.scrollTo(0, 7700);
     })
@@ -509,11 +527,21 @@ window.addEventListener('DOMContentLoaded', () => {
         d3.select("#g-Final-Project-Map-box").classed("animate-206", false);
         d3.select("#g-Final-Project-Map-Artboard_1-img").classed("animate-back-img", false);
         d3.select("#map-shadow").classed("animate-back-img", false);
+        d3.select("#household-income").classed("household-opacity", false);
+        // d3.select(".counter").classed("household-opacity", false);
+        d3.select("#household-income").style("opacity", 0);
+        // d3.select("#counter").attr("style", none);
+
         d3.selectAll("#Circle-246a").style("transform", 
         "")
         d3.selectAll("#Circle-206").style("transform", 
         "")
 
+        reset_scrolling();
+        d3.select("#return-button").attr("hidden", "")
+        d3.selectAll(".stack").style("opacity", 0);
+        clearInterval(typewriterInterval); // Stop the animation
+        d3.selectAll("#annotation").text(""); // Clear the text or reset it
         // var paras = document.getElementsByClassName('beat-246a');
         // while(paras[0]) {
         //     paras[0].parentNode.removeChild(paras[0]);
@@ -523,11 +551,6 @@ window.addEventListener('DOMContentLoaded', () => {
         //     paras[0].parentNode.removeChild(paras[0]);
         // }
 
-        reset_scrolling();
-        d3.select("#return-button").attr("hidden", "")
-        d3.selectAll(".stack").style("opacity", 0);
-        clearInterval(typewriterInterval); // Stop the animation
-        d3.select("#annotation").text(""); // Clear the text or reset it
     })
     function reset_scrolling() {
         if (selected == "none") {
@@ -564,6 +587,33 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+
+    function animateCounter(from, to, duration) {
+        const counterEl = d3.select("#counter").node();
+        const start = performance.now();
+
+        function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const value = Math.floor(from + (to - from) * progress);
+            counterEl.textContent = value;
+            if (value > 50) {
+                d3.select("#counter").style("color", "green");
+            }
+            else if (value < 30) {
+                d3.select("#counter").style("color", "red");
+            }
+            else {
+                d3.select("#counter").style("color", "black");
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
 
     d3.select("#step-one").style("opacity", 0);
     d3.select("#step-two").style("opacity", 0);
@@ -608,12 +658,16 @@ window.addEventListener('DOMContentLoaded', () => {
     d3.select("#step-246a-seven").on('stepin', function(event) {
         console.log(selected)
         if (selected == "246a") {
+            if (event.detail.direction == "up") {
+                animateCounter(22, 48, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "CTTransit operates over 22 local routes in New Haven, including line 246a, which I got on at the New Haven Green.";
             
             clearInterval(typewriterInterval); // Reset in case user scrolled in too quickly
             typeWriter(el, message, 25);
+
             // d3.select("#new-haven-green-video-246a").style("opacity", 1)
             // d3.select("#step-246a-seven").style("position", "fixed");
         }
@@ -627,29 +681,46 @@ window.addEventListener('DOMContentLoaded', () => {
             d3.selectAll("#Circle-246a").style("transform", 
             "translate(" + (0 * (1-event.detail.progress) + -8.6*event.detail.progress) + "vw, " + (0 * (1-event.detail.progress) + -6.8*event.detail.progress) + "vh)")
         }
-
+        
     });
     d3.select("#step-246a-seven").on('stepout', function(event) {
         if (selected == "246a") {
+            // d3.select("#counter").classed("counter", false);
+            // void element.offsetWidth; // trigger reflow
+            // d3.select("#counter").classed("counter", true);
+            // d3.select("#counter").style("--from", 48);
+            // d3.select("#counter").style("--to", 22);
+            // d3.select("#counter").style("--time", "3s");
             // if (event.detail.direction === "up" || isTyping) {
-            //     console.log("STEPPED OUT");
-            //     // d3.select("#step-246a-seven").style("position", "relative");
-            //     clearInterval(typewriterInterval); // Stop the animation
-            //     d3.select("#annotation").text(""); // Clear the text or reset it
-            //     isTyping = false;
-            // }
-        }
-
-    });
-
-    d3.select("#step-246a-eight").on('stepin', function(event) {
-        if (selected == "246a") {
+                //     console.log("STEPPED OUT");
+                //     // d3.select("#step-246a-seven").style("position", "relative");
+                //     clearInterval(typewriterInterval); // Stop the animation
+                //     d3.select("#annotation").text(""); // Clear the text or reset it
+                //     isTyping = false;
+                // }
+            }
+            
+        });
+        
+        d3.select("#step-246a-eight").on('stepin', function(event) {
+            if (selected == "246a") {
+                if (event.detail.direction == "down") {
+                    animateCounter(48, 22, 1000); // from 0 to 48 in 1000ms
+                }
+                else {
+                    animateCounter(33, 22, 1000); // from 0 to 48 in 1000ms
+                }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "At the Stop-and-Shop, a group of high-school-aged girls got off. 'See ya tomorrow!' The bus got significantly quieter.";
             
             clearInterval(typewriterInterval); // Reset in case user scrolled in too quickly
             typeWriter(el, message, 25);
+            // d3.select("#counter").classed("counter", false);
+            // d3.select("#counter").classed("counter", true);
+            // d3.select("#counter").style("--from", 48);
+            // d3.select("#counter").style("--to", 22);
+            // d3.select("#counter").style("--time", "10s");
             // d3.select("#new-haven-green-video-246a").style("opacity", 1)
             // d3.select("#step-246a-seven").style("position", "fixed");
         }
@@ -684,7 +755,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     d3.select("#step-246a-nine").on('stepin', function(event) {
         if (selected == "246a") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(22, 33, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+                animateCounter(57, 33, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "After Pendleton Street, just one and a half miles from where I got on, the houses suddenly gave way to open fields and forest.";
@@ -721,7 +797,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     d3.select("#step-246a-ten").on('stepin', function(event) {
         if (selected == "246a") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(33, 57, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+                animateCounter(68, 57, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "At Edgewood and Alden, the man making a call in Spanish got off. The bus went silent. ";
@@ -757,7 +838,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-246a-eleven").on('stepin', function(event) {
         if (selected == "246a") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(57, 68, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "Later, I found out that at Fountain and Alden, the bus passed less than a minute from the cat cafe I often frequent. ";
@@ -793,7 +876,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-246a-twelve").on('stepin', function(event) {
         if (selected == "246a") {
-
+            if (event.detail.direction == "down") {
+            }
+            else {
+                animateCounter(34, 68, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "I had no idea - the landscape was so different, rows and rows of identical-looking plywood houses inhabited by the middle class. ";
@@ -836,7 +923,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-246a-thirteen").on('stepin', function(event) {
         if (selected == "246a") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(68, 34, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+                animateCounter(53, 34, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "At Fountain and Pardee, I noticed that the bus had public anti-discrimination notices where normally ads would be. By now, I was the only one on the bus. ";
@@ -878,7 +970,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-246a-fourteen").on('stepin', function(event) {
         if (selected == "246a") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(34, 53, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "The bus finally stopped at the Stop and Shop in Amity, which was situated, like many suburban shopping complexes in America, in a ring of restaurants and stores around a massive parking lot.";
@@ -978,7 +1072,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // 206 line
     d3.select("#step-206-seven").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+            }
+            else {
+                animateCounter(53, 48, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "The New Haven bus system is radial - meaning that if I wanted to get from, say, Savin Rock to Lighthouse Point, I would have to go from Savin Rock to downtown and then to Lighthouse Point, turning a 15 minute car trip into a 55 minute bus trip. ";
@@ -1020,10 +1118,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-206-eight").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(48, 53, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
-            const message = "At Wooster Square, close to Pepe’s and Sally’s, a man carrying a box of pizza got on. New Haven is famous for its pizza, and is officially the “Pizza Capital of the United States.";
+            const message = "At Wooster Square, close to Pepe’s and Sally’s, a man carrying a box of pizza got on. New Haven is famous for its pizza, and is officially the 'Pizza Capital of the United States.'";
             
             clearInterval(typewriterInterval); // Reset in case user scrolled in too quickly
             typeWriter(el, message, 25);
@@ -1056,6 +1156,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-206-nine").on('stepin', function(event) {
         if (selected == "206") {
+            if (event.detail.direction == "down") {
+            }
+            else {
+                animateCounter(20, 53, 1000); // from 0 to 48 in 1000ms
+            }
 
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
@@ -1085,7 +1190,11 @@ window.addEventListener('DOMContentLoaded', () => {
     
     d3.select("#step-206-ten").on('stepin', function(event) {
         if (selected == "206") {
-        
+            if (event.detail.direction == "down") {
+                animateCounter(53, 20, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "After S Wallace Street, the leafy sidewalks and beautiful brownstones of Wooster Square suddenly gave way to empty lots piled with sediment, a decaying building with massive graffiti on it, and a recycling center. ";
@@ -1123,7 +1232,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     d3.select("#step-206-eleven").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+            }
+            else {
+                animateCounter(12, 20, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "Interestingly, it also happened to be the location of the New Haven Health Department. ";
@@ -1139,7 +1252,7 @@ window.addEventListener('DOMContentLoaded', () => {
     d3.select("#step-206-eleven").on('progress', function(event) {
         if (selected == "206") {
     
-            d3.select("#health-dept-206").style("opacity", 5*event.detail.progress)
+            d3.select("#health-206").style("opacity", 5*event.detail.progress)
         }
     
     });
@@ -1159,7 +1272,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     d3.select("#step-206-twelve").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(20, 12, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+            }
                 console.log("STEPPED IN");
                 const el = d3.select("#annotation").node();
                 const message = "Entering Fair Haven, the road became much worse. Empty, overgrown lots and nondescript brick buildings became much more common. New Haven, after all, was once industrial, and then like much of America deindustrialized; it still bears those marks today. ";
@@ -1234,7 +1351,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-206-fourteen").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+            }
+            else {
+                animateCounter(32, 12, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "At the corner of Chapel and Ferry was a corner store, advertising prominently in three separate places - that it took EBT.";
@@ -1278,7 +1399,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-206-fifteen").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(12, 32, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+                animateCounter(51, 32, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "Passing by Fort Wooster park, I could just barely make out a memorial which, as I later found out, was dedicated to the Quinnipiac Tribe.  \
@@ -1327,7 +1453,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     d3.select("#step-206-sixteen").on('stepin', function(event) {
         if (selected == "206") {
-
+            if (event.detail.direction == "down") {
+                animateCounter(32, 51, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+                animateCounter(47, 51, 1000); // from 0 to 48 in 1000ms
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "As they were leaving, someone dropped a piece of trash. ";
@@ -1373,7 +1504,11 @@ window.addEventListener('DOMContentLoaded', () => {
     
     d3.select("#step-206-seventeen").on('stepin', function(event) {
         if (selected == "206") {
-    
+            if (event.detail.direction == "down") {
+                animateCounter(51, 47, 1000); // from 0 to 48 in 1000ms
+            }
+            else {
+            }
             console.log("STEPPED IN");
             const el = d3.select("#annotation").node();
             const message = "Finally, the bus stopped at Lighthouse Point, a picturesque public park adjacent to the New Haven Yacht Club. I’d been here before with the Yale Birding Club, searching for hawks and finding none. ";

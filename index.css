@@ -220,7 +220,7 @@ body {
     /* text-align: center; */
     /* top: 2440px; */
     margin-left: 10vw;
-    top: 40px;
+    top: 10px;
     /* left: 10vw; */
     position: sticky;
     z-index: 1;
@@ -389,7 +389,6 @@ body {
     transform-origin: center center;
     z-index: 0;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 
 #industrial-decay-206 {
@@ -397,49 +396,42 @@ body {
     transform-origin: center center;
     z-index: 1;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #health-206 {
     transform: rotate(-5deg);
     transform-origin: center center;
     z-index: 2;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #fair-haven-206 {
     transform: rotate(0deg);
     transform-origin: center center;
     z-index: 3;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #cash-four-206 {
     transform: rotate(0deg);
     transform-origin: center center;
     z-index: 4;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #ebt-206 {
     transform: rotate(-5deg);
     transform-origin: center center;
     z-index: 5;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #native-american-206 {
     transform: rotate(4deg);
     transform-origin: center center;
     z-index: 6;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #lighthouse-point-206 {
     transform: rotate(-3deg);
     transform-origin: center center;
     z-index: 7;
     /* width: 20%; */
-    margin-left: 7vw;
 }
 #lighthouse-206 {
     transform: rotate(-7deg);
@@ -475,6 +467,60 @@ body {
     position: relative;
     /* margin-bottom: 400px; */
 }
+
+/* @property --from {
+    syntax: '<integer>';
+    initial-value: 0;
+    inherits: false;
+}
+
+.counter {
+    transition: --from 1s;
+    counter-reset: int var(--from);
+    animation: counter var(--time, 1000) forwards ease-in-out;
+}
+
+.counter::after {
+    content: counter(int);
+}
+
+    @keyframes counter {
+    to {
+        --from: var(--to, 100);
+    }
+} */
+
+#household-income, .counter {
+    position: fixed !important; 
+    font-family: "Patrick Hand", cursive;
+    color: rgb(0, 0, 0, 1);
+    font-weight: 300;
+    font-size: 4vh;
+    top: 50px;
+    /* opacity: 0; */
+}
+
+#household-income {
+    left: 10.8vw;
+}
+.counter {
+    left: 23vw;
+}
+
+.household-opacity {
+    animation: opacity-change 1s;
+}
+
+/* .household-opacity::after {
+    opacity: 1;
+} */
+
+@keyframes opacity-change {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+ */
+
 
 #footer {
     height: 200px;
