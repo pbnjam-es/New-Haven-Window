@@ -679,7 +679,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // d3.select("Circle-246a").attr("cx", (1027 * (1-event.detail.progress) + 800*event.detail.progress))
             // d3.select("Circle-246a").attr("cy", (645 * (1-event.detail.progress) + 700*event.detail.progress))
             d3.selectAll("#Circle-246a").style("transform", 
-            "translate(" + (0 * (1-event.detail.progress) + -8.6*event.detail.progress) + "vw, " + (0 * (1-event.detail.progress) + -6.8*event.detail.progress) + "vh)")
+            "translate(" + (0 * (1-event.detail.progress) + -5.3*event.detail.progress) + "%, " + (0 * (1-event.detail.progress) + -2.8*event.detail.progress) + "%)")
         }
         
     });
@@ -730,12 +730,20 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
             if (event.detail.progress < 0.2) {
                 d3.selectAll("#Circle-246a").style("transform", 
-                "translate(" + (-8.6 * (1-5*event.detail.progress) + -7.1*5*event.detail.progress) + "vw, " + (-6.8 * (1-5*event.detail.progress) + -9.8*5*event.detail.progress) + "vh)")
+                "translate(" + (-5.3 * (0.2-event.detail.progress)/0.2 + -4.9*(event.detail.progress)/0.2) + "%, " + (-2.8 * (0.2-event.detail.progress)/0.2 + -3.5*(event.detail.progress)/0.2) + "%)")
             }
             else {
                 d3.selectAll("#Circle-246a").style("transform", 
-                "translate(" + (-7 * (1-event.detail.progress)/0.8 + -22*(event.detail.progress-0.2))/0.8 + "vw, " + (-9.8 * (1-event.detail.progress)/0.8 + -22.8*(event.detail.progress-0.2))/0.8 + "vh)")
+                "translate(" + (-4.9 * (1-event.detail.progress)/0.8 + -12*(event.detail.progress-0.2)/0.8) + "%, " + (-3.5 * (1-event.detail.progress)/0.8 + -7.5*(event.detail.progress-0.2)/0.8) + "%)")
             }
+            // if (event.detail.progress < 0.6) {
+            //     d3.selectAll("#Circle-246a").style("transform", 
+            //     "translate(" + (-17.7 * (0.6-event.detail.progress)/0.6 + -25*(event.detail.progress)/0.6) + "%, " + (-17.6 * (0.6-event.detail.progress)/0.6 + -18.4*(event.detail.progress)/0.6) + "%)")
+            // }
+            // else {
+            //     d3.selectAll("#Circle-246a").style("transform", 
+            //     "translate(" + (-25 * (1-event.detail.progress)/0.4 + -25*(event.detail.progress-0.6)/0.4) + "%, " + (-18.4 * (1-event.detail.progress)/0.4 + -18.4*(event.detail.progress-0.6)/0.4) + "%)")
+            // }
         }
 
     });
@@ -777,7 +785,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             d3.select("#forest-246a").style("opacity", 5*event.detail.progress)
             d3.selectAll("#Circle-246a").style("transform", 
-            "translate(" + (-22 * (1-event.detail.progress) + -30*event.detail.progress) + "vw, " + (-22.8 * (1-event.detail.progress) + -30*event.detail.progress) + "vh)")
+            "translate(" + (-12 * (1-event.detail.progress) + -19.3*event.detail.progress) + "%, " + (-7.4 * (1-event.detail.progress) + -10.6*event.detail.progress) + "%)")
         }
 
     });
@@ -819,7 +827,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             d3.select("#forest-246a").style("opacity", 5*event.detail.progress)
             d3.selectAll("#Circle-246a").style("transform", 
-            "translate(" + (-30 * (1-event.detail.progress) + -28.5*event.detail.progress) + "vw, " + (-30 * (1-event.detail.progress) + -45*event.detail.progress) + "vh)")
+            "translate(" + (-19.3 * (1-event.detail.progress) + -18.4*event.detail.progress) + "%, " + (-10.6 * (1-event.detail.progress) + -15*event.detail.progress) + "%)")
         }
 
     });
@@ -857,7 +865,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             d3.select("#forest-246a").style("opacity", 5*event.detail.progress)
             d3.selectAll("#Circle-246a").style("transform", 
-            "translate(" + (-28.5 * (1-event.detail.progress) + -28*event.detail.progress) + "vw, " + (-45 * (1-event.detail.progress) + -48.5*event.detail.progress) + "vh)")
+            "translate(" + (-18.4 * (1-event.detail.progress) + -17.7*event.detail.progress) + "%, " + (-15 * (1-event.detail.progress) + -17.6*event.detail.progress) + "%)")
         }
 
     });
@@ -898,11 +906,11 @@ window.addEventListener('DOMContentLoaded', () => {
             d3.select("#cat-cafe-246a").style("opacity", 5*event.detail.progress)
             if (event.detail.progress < 0.6) {
                 d3.selectAll("#Circle-246a").style("transform", 
-                "translate(" + (-28 * (0.6-event.detail.progress)/0.6 + -38*(event.detail.progress)/0.6) + "vw, " + (-48.5 * (0.6-event.detail.progress)/0.6 + -50*(event.detail.progress)/0.6) + "vh)")
+                "translate(" + (-17.7 * (0.6-event.detail.progress)/0.6 + -25*(event.detail.progress)/0.6) + "%, " + (-17.6 * (0.6-event.detail.progress)/0.6 + -18.4*(event.detail.progress)/0.6) + "%)")
             }
             else {
                 d3.selectAll("#Circle-246a").style("transform", 
-                "translate(" + (-38 * (1-event.detail.progress)/0.4 + -44*(event.detail.progress-0.6)/0.4) + "vw, " + (-50 * (1-event.detail.progress)/0.4 + -54*(event.detail.progress-0.6)/0.4) + "vh)")
+                "translate(" + (-25 * (1-event.detail.progress)/0.4 + -25*(event.detail.progress-0.6)/0.4) + "%, " + (-18.4 * (1-event.detail.progress)/0.4 + -18.4*(event.detail.progress-0.6)/0.4) + "%)")
             }
 
         }
@@ -946,11 +954,11 @@ window.addEventListener('DOMContentLoaded', () => {
             d3.select("#anti-discrimination-246a").style("opacity", 5*event.detail.progress)
             if (event.detail.progress < 0.6) {
                 d3.selectAll("#Circle-246a").style("transform", 
-                "translate(" + (-44 * (0.6-event.detail.progress)/0.6 + -41*(event.detail.progress)/0.6) + "vw, " + (-54 * (0.6-event.detail.progress)/0.6 + -64*(event.detail.progress)/0.6) + "vh)")
+                "translate(" + (-25 * (0.6-event.detail.progress)/0.6 + -28*(event.detail.progress)/0.6) + "%, " + (-18.4 * (0.6-event.detail.progress)/0.6 + -20*(event.detail.progress)/0.6) + "%)")
             }
             else {
                 d3.selectAll("#Circle-246a").style("transform", 
-                "translate(" + (-41 * (1-event.detail.progress)/0.4 + -45*(event.detail.progress-0.6)/0.4) + "vw, " + (-64 * (1-event.detail.progress)/0.4 + -77*(event.detail.progress-0.6)/0.4) + "vh)")
+                "translate(" + (-28 * (1-event.detail.progress)/0.4 + -26*(event.detail.progress-0.6)/0.4) + "%, " + (-20 * (1-event.detail.progress)/0.4 + -23.7*(event.detail.progress-0.6)/0.4) + "%)")
             }
         }
 
@@ -988,8 +996,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (selected == "246a") {
 
             d3.select("#amity-246a").style("opacity", 5*event.detail.progress)
-            d3.selectAll("#Circle-246a").style("transform", 
-            "translate(" + (-45 * (1-event.detail.progress) + -47*event.detail.progress) + "vw, " + (-77 * (1-event.detail.progress) + -74*event.detail.progress) + "vh)")
+            if (event.detail.progress < 0.8) {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-26 * (0.8-event.detail.progress)/0.8 + -28.5*(event.detail.progress)/0.8) + "%, " + (-23.7 * (0.8-event.detail.progress)/0.8 + -28.3*(event.detail.progress)/0.8) + "%)")
+            }
+            else {
+                d3.selectAll("#Circle-246a").style("transform", 
+                "translate(" + (-28.5 * (1-event.detail.progress)/0.2 + -30*(event.detail.progress-0.8)/0.2) + "%, " + (-28 * (1-event.detail.progress)/0.2 + -27.3*(event.detail.progress-0.8)/0.2) + "%)")
+            }
         }
 
     });
@@ -1094,11 +1108,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (event.detail.progress < 0.6) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (0 * (0.6-event.detail.progress)/0.6 + 2*(event.detail.progress)/0.6) + "vw, " + (0 * (0.6-event.detail.progress)/0.6 + 2*(event.detail.progress)/0.6) + "vh)")
+                "translate(" + (0 * (0.6-event.detail.progress)/0.6 + 1*(event.detail.progress)/0.6) + "%, " + (0 * (0.6-event.detail.progress)/0.6 + 0.8*(event.detail.progress)/0.6) + "%)")
             }
             else {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (2 * (1-event.detail.progress)/0.4 + 1*(event.detail.progress-0.6)/0.4) + "vw, " + (2 * (1-event.detail.progress)/0.4 + 7*(event.detail.progress-0.6)/0.4) + "vh)")
+                "translate(" + (0.8 * (1-event.detail.progress)/0.4 + 0.5*(event.detail.progress-0.6)/0.4) + "%, " + (1 * (1-event.detail.progress)/0.4 + 2.7*(event.detail.progress-0.6)/0.4) + "%)")
             }
         }
 
@@ -1137,7 +1151,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             d3.select("#wooster-206").style("opacity", 5*event.detail.progress)
             d3.selectAll("#Circle-206").style("transform", 
-            "translate(" + (1 * (1-event.detail.progress) + 10*event.detail.progress) + "vw, " + (7 * (1-event.detail.progress) + 12*event.detail.progress) + "vh)")
+            "translate(" + (0.5 * (1-event.detail.progress) + 6*event.detail.progress) + "%, " + (2.7 * (1-event.detail.progress) + 4*event.detail.progress) + "%)")
         }
 
     });
@@ -1212,7 +1226,7 @@ window.addEventListener('DOMContentLoaded', () => {
             d3.select("#industrial-decay-206").style("opacity", 5*event.detail.progress)
         
             d3.selectAll("#Circle-206").style("transform", 
-            "translate(" + (10 * (1-event.detail.progress) + 16*event.detail.progress) + "vw, " + (12 * (1-event.detail.progress) + 12*event.detail.progress) + "vh)")
+            "translate(" + (6 * (1-event.detail.progress) + 9.2*event.detail.progress) + "%, " + (4 * (1-event.detail.progress) + 4.2*event.detail.progress) + "%)")
         }
     
     });
@@ -1295,7 +1309,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
             d3.select("#fair-haven-206").style("opacity", 5*event.detail.progress)
             d3.selectAll("#Circle-206").style("transform", 
-            "translate(" + (16 * (1-event.detail.progress) + 20*event.detail.progress) + "vw, " + (12 * (1-event.detail.progress) + 11*event.detail.progress) + "vh)")
+            "translate(" + (9.2 * (1-event.detail.progress) + 15*event.detail.progress) + "%, " + (4.2 * (1-event.detail.progress) + 3.7*event.detail.progress) + "%)")
         }
     
     });
@@ -1375,11 +1389,11 @@ window.addEventListener('DOMContentLoaded', () => {
             d3.select("#ebt-206").style("opacity", 5*event.detail.progress)
             if (event.detail.progress < 0.6) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (20 * (0.6-event.detail.progress)/0.6 + 26*(event.detail.progress)/0.6) + "vw, " + (11 * (0.6-event.detail.progress)/0.6 + 10*(event.detail.progress)/0.6) + "vh)")
+                "translate(" + (15 * (0.6-event.detail.progress)/0.6 + 16.3*(event.detail.progress)/0.6) + "%, " + (3.7 * (0.6-event.detail.progress)/0.6 + 3.3*(event.detail.progress)/0.6) + "%)")
             }
             else {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (26 * (1-event.detail.progress)/0.4 + 27.5*(event.detail.progress-0.6)/0.4) + "vw, " + (10 * (1-event.detail.progress)/0.4 + 18*(event.detail.progress-0.6)/0.4) + "vh)")
+                "translate(" + (16.3 * (1-event.detail.progress)/0.4 + 17.7*(event.detail.progress-0.6)/0.4) + "%, " + (3.3 * (1-event.detail.progress)/0.4 + 7*(event.detail.progress-0.6)/0.4) + "%)")
             }
         }
     
@@ -1426,15 +1440,15 @@ window.addEventListener('DOMContentLoaded', () => {
             
             if (event.detail.progress < 0.4) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (27.5 * (0.4-event.detail.progress)/0.4 + 27*(event.detail.progress)/0.4) + "vw, " + (18 * (0.4-event.detail.progress)/0.4 + 36*(event.detail.progress)/0.4) + "vh)")
+                "translate(" + (17.7 * (0.4-event.detail.progress)/0.4 + 17.2*(event.detail.progress)/0.4) + "%, " + (7 * (0.4-event.detail.progress)/0.4 + 13*(event.detail.progress)/0.4) + "%)")
             }
             else if (event.detail.progress < 0.6) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (27 * (0.6-event.detail.progress)/0.2 + 27.5*(event.detail.progress-0.4)/0.2) + "vw, " + (36 * (0.6-event.detail.progress)/0.2 + 41*(event.detail.progress-0.4)/0.2) + "vh)")
+                "translate(" + (17.2 * (0.6-event.detail.progress)/0.2 + 17.5*(event.detail.progress-0.4)/0.2) + "%, " + (13 * (0.6-event.detail.progress)/0.2 + 15*(event.detail.progress-0.4)/0.2) + "%)")
             }
             else {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (27.5 * (1-event.detail.progress)/0.4 + 27*(event.detail.progress-0.6)/0.4) + "vw, " + (41 * (1-event.detail.progress)/0.4 + 53*(event.detail.progress-0.6)/0.4) + "vh)")
+                "translate(" + (17.5 * (1-event.detail.progress)/0.4 + 16.4*(event.detail.progress-0.6)/0.4) + "%, " + (15 * (1-event.detail.progress)/0.4 + 24*(event.detail.progress-0.6)/0.4) + "%)")
             }
         }
     
@@ -1475,15 +1489,15 @@ window.addEventListener('DOMContentLoaded', () => {
     d3.select("#step-206-sixteen").on('progress', function(event) {
         if (event.detail.progress < 0.7) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (27 * (0.7-event.detail.progress)/0.7 + 23.5*(event.detail.progress)/0.7) + "vw, " + (53 * (0.7-event.detail.progress)/0.7 + 87*(event.detail.progress)/0.7) + "vh)")
+                "translate(" + (16.4 * (0.7-event.detail.progress)/0.7 + 15.2*(event.detail.progress)/0.7) + "%, " + (24 * (0.7-event.detail.progress)/0.7 + 33*(event.detail.progress)/0.7) + "%)")
             }
             else if (event.detail.progress < 0.85) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (23.5 * (0.85-event.detail.progress)/0.15 + 23.5*(event.detail.progress-0.7)/0.15) + "vw, " + (87 * (0.85-event.detail.progress)/0.15 + 100*(event.detail.progress-0.7)/0.15) + "vh)")
+                "translate(" + (15.2 * (0.85-event.detail.progress)/0.15 + 15.2*(event.detail.progress-0.7)/0.15) + "%, " + (33 * (0.85-event.detail.progress)/0.15 + 37*(event.detail.progress-0.7)/0.15) + "%)")
             }
             else {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (23.5 * (1-event.detail.progress)/0.15 + 27.7*(event.detail.progress-0.85)/0.15) + "vw, " + (100 * (1-event.detail.progress)/0.15 + 98*(event.detail.progress-0.85)/0.15) + "vh)")
+                "translate(" + (15.2 * (1-event.detail.progress)/0.15 + 17.6*(event.detail.progress-0.85)/0.15) + "%, " + (37 * (1-event.detail.progress)/0.15 + 36.7*(event.detail.progress-0.85)/0.15) + "%)")
             }
     });
 
@@ -1528,15 +1542,15 @@ window.addEventListener('DOMContentLoaded', () => {
             d3.select("#lighthouse-point-206").style("opacity", 5*event.detail.progress)
             if (event.detail.progress < 0.4) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (27.7 * (0.4-event.detail.progress)/0.4 + 30*(event.detail.progress)/0.4) + "vw, " + (100 * (0.4-event.detail.progress)/0.4 + 121*(event.detail.progress)/0.4) + "vh)")
+                "translate(" + (17.6 * (0.4-event.detail.progress)/0.4 + 19.3*(event.detail.progress)/0.4) + "%, " + (36.7 * (0.4-event.detail.progress)/0.4 + 44.6*(event.detail.progress)/0.4) + "%)")
             }
             else if (event.detail.progress < 0.6) {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (30 * (0.6-event.detail.progress)/0.2 + 27.5*(event.detail.progress-0.4)/0.2) + "vw, " + (121 * (0.6-event.detail.progress)/0.2 + 131*(event.detail.progress-0.4)/0.2) + "vh)")
+                "translate(" + (19.3 * (0.6-event.detail.progress)/0.2 + 18.1*(event.detail.progress-0.4)/0.2) + "%, " + (44.6 * (0.6-event.detail.progress)/0.2 + 48*(event.detail.progress-0.4)/0.2) + "%)")
             }
             else {
                 d3.selectAll("#Circle-206").style("transform", 
-                "translate(" + (27.5 * (1-event.detail.progress)/0.4 + 23*(event.detail.progress-0.6)/0.4) + "vw, " + (131 * (1-event.detail.progress)/0.4 + 135*(event.detail.progress-0.6)/0.4) + "vh)")
+                "translate(" + (18.1 * (1-event.detail.progress)/0.4 + 15*(event.detail.progress-0.6)/0.4) + "%, " + (48 * (1-event.detail.progress)/0.4 + 49*(event.detail.progress-0.6)/0.4) + "%)")
             }
         }
     
